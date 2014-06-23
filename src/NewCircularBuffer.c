@@ -18,9 +18,8 @@ void circularBufferAdd(CircularBuffer *cb, void *obj, void(*copy)(void *, void *
 	if(cb->size != 0) 
 		cb->head++;
 
-	cb->buffer[cb->size] = valueToAdd; 
-	cb->size++; 
-	
+	copy(cb->buffer, obj);
+	cb->size++; 	
 }
 
 void circularBufferDel(CircularBuffer *cb)
